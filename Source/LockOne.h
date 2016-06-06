@@ -33,7 +33,7 @@ void lock_init(lock_t *myLock){
 }
 
 void lock(lock_t *myLock){
-	UINT8 j;
+	int j;
 	if (myLock->firstThread == thrd_current()){
 		j = 0;
 	}
@@ -44,7 +44,7 @@ void lock(lock_t *myLock){
 }
 
 void unlock(lock_t *myLock){
-	UINT8 j;
+	int j;
 	if (myLock->firstThread == thrd_current()){
 		j = 0;
 	}

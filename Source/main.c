@@ -1,5 +1,6 @@
 
 #include "tinycthread.h"
+#include <pthread.h>
 #include "LockOne.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,23 +8,31 @@
 
 lock_t myLock;
 
-int criticalSection(void * arg){
+void * criticalSection(void * arg){
 	//fprintf(stdout, "fooo");
-	lock(&myLock);
-	fprintf(stdout, "thread %u", thrd_current());
-	unlock(&myLock);
-	return 0;
+	//lock(&myLock);
+	fprintf(stdout, "thread %u \n", pthread_self());
+	//unlock(&myLock);
 }
 
 
 int main(){
-	thrd_t thread1;
+//	thrd_t thread1;
 	lock_init(&myLock);
+	pthread_t thread;
 	int a = 0;
-	thrd_create(&thread1, criticalSection, NULL);
-	lock(&myLock);
-	fprintf(stdout, "thread %u", thrd_current());
-	unlock(&myLock);
+	volatile int i = 0; 
 
+	for(a = 0; a < 10000; a++){
+//	thrd_create(&thread1, criticalSection, NULL);
+	pthread_create(&thread, NULL, criticalSection, NULL);
+	//lock(&myLock);
+	for(i = 0; i < 1000000; i++){
+	}
+	fprintf(stdout, "thread %u \n", pthread_self());
+
+	//unlock(&myLock);
+	pthread_join(thread, NULL);
+	}
 	return 0;
 }

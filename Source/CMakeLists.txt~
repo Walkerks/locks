@@ -24,7 +24,7 @@ ADD_EXECUTABLE(LockTest ${CMAKE_SOURCE_DIR}/main.c
 #CXXTEST_ADD_TEST(timingP_test timingP_test.cc ${CMAKE_SOURCE_DIR}/timingP_test.h timingP.h timingP.cpp QuickS.h QuickSCon.h fill.h fill.cpp)
 
 #set_property(TARGET QuickSort PROPERTY CXX_STANDARD 11)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 
