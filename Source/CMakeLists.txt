@@ -17,6 +17,10 @@ ADD_EXECUTABLE(LockTest ${CMAKE_SOURCE_DIR}/main.cpp
 						${CMAKE_SOURCE_DIR}/Peterson.cpp
 						${CMAKE_SOURCE_DIR}/Filter.h
 						${CMAKE_SOURCE_DIR}/Filter.cpp
+						#${CMAKE_SOURCE_DIR}/TestThread.h
+						#${CMAKE_SOURCE_DIR}/TestThread.cpp
+						#${CMAKE_SOURCE_DIR}/Counter.h
+						#${CMAKE_SOURCE_DIR}/Counter.cpp
 #						${CMAKE_SOURCE_DIR}tinycthread.h
 #						${CMAKE_SOURCE_DIR}tinycthread.c
 								)

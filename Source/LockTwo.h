@@ -1,39 +1,20 @@
 #include "Lock.h"
 #include <stdlib.h>
 #include <stdbool.h>
-#include <pthread.h>
-//proto of the lock
-typedef struct {
-	volatile pthread_t victim;
-	int numThreads;
-} lock_t;
-/*
-private volatile int victim;
+#include <thread>
 
-	@Override
-	public void lock() {
-		int i = ((TestThread)Thread.currentThread()).getThreadId();
-		victim = i;
-		while(victim == i);
-//			System.out.println("Thread " + i + " waiting");
-	}
+#ifndef _TWOLOCK_LOCK_
+#define _TWOLOCK_LOCK_
 
-	@Override
-	public void unlock() {}
+class LockTwo : public Lock{
+private:
+	volatile size_t victim;
+public:
+	LockTwo();
+	~LockTwo();
+	void lock(size_t id);
+	void unlock(size_t id);
 
+};
 
-*/
-
-void lock_init(lock_t *myLock,  int numThreads){
-    myLock->numThreads = numThreads;
-}
-
-void lock(lock_t *myLock){
-    pthread_t  i = pthread_self();
-    myLock->victim = i;
-    while(myLock->victim == i);
-}
-
-void unlock(lock_t *myLock){
-
-}
+#endif
