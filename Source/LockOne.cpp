@@ -14,30 +14,19 @@ myLock->numThreads = numThreads;
 LockOne::LockOne(){
 	flag[0] = false;
 	flag[1] = false;
-	firstThread = std::this_thread::get_id();
 }
 void LockOne::lock(size_t id){
-	//int i = this->thread::get_id();
-	int i, curId;
-	if (firstThread == std::this_thread::get_id()){
-		curId = 0;
-		i = 1;
+	int j = 1 - id;
+	if (id == 0){
+		volatile int a = 0;
 	}
 	else{
-		curId = 1;
-		i = 0;
+		volatile int a = 0;
 	}
-	flag[curId] = true;
-	while (flag[i]);
+	flag[id] = true;
+	while (flag[j]);
 }
 
 void LockOne::unlock(size_t id){
-	int curId;
-	if (firstThread == std::this_thread::get_id()){
-		curId = 0;
-	}
-	else{
-		curId = 1;
-	}
-	flag[curId] = false;
+	flag[id] = false;
 }

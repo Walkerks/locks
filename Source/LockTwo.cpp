@@ -1,15 +1,16 @@
 #include "LockTwo.h"
 #include <thread>
 
-LockTwo::LockTwo(){
+//LockTwo::LockTwo(){
 	//victim = nullptr;
-}
+//}
+/*
 LockTwo::~LockTwo(){
-	/*if (victim != nullptr){
+	if (victim != nullptr){
 		delete victim;
 		victim = nullptr;
-	}*/
-}
+	}
+}*/
 void LockTwo::lock(size_t id){
 	victim = id;
 	while (victim == id);

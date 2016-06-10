@@ -21,13 +21,13 @@ Lock * getLock(locks l, int threds){
 	switch (l)
 	{
 	case ONE:
-		return new LockOne;
+		return new LockOne();
 		break;
 	case TWO:
-		return new LockTwo;
+		return new LockTwo();
 		break;
 	case PETERSON:
-		return new Peterson;
+		return new Peterson();
 		break;
 	case FILTER:
 		return new Filter(threds);
@@ -63,8 +63,8 @@ int main(){
 	double executionTime;
 	
 	for (int l = ONE; l <= FILTER; l++){
-		if (l == TWO){
-			l++;
+		if ( l == TWO || l == ONE){
+			continue;
 		}
 		
 		for (int numThreads = 2; numThreads <= MAXNUMTHREADS; numThreads = numThreads + 2){

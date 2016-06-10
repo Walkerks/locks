@@ -11,8 +11,6 @@
 class LockOne : public Lock{
 private:
 	volatile bool flag[2];
-	std::thread::id firstThread;
-
 public:
 	LockOne();
 	void lock(size_t id);

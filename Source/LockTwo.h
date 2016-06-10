@@ -10,8 +10,8 @@ class LockTwo : public Lock{
 private:
 	volatile size_t victim;
 public:
-	LockTwo();
-	~LockTwo();
+	//LockTwo();
+	//~LockTwo();
 	void lock(size_t id);
 	void unlock(size_t id);
 
